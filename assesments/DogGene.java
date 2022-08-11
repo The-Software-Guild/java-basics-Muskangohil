@@ -19,13 +19,12 @@ public class DogGene {
         int num1 = rng.nextInt(100 - sum);
 
         int sum1 = sum + num1;
-        //System.out.println("sum1: " + sum1);
+
 
         int num2 = rng.nextInt(100 - sum1); //+ sum1;
         int sum2 = sum1 + num2;
 
         int num3 = rng.nextInt(100 - sum2);
-        //System.out.println("num1:" + num1 + "\nnum2:" + num2 + "\nnum3: " + num3);
 
         String[] breeds = new String[]{"lambrador", "pug", "chihuahua"};
 
