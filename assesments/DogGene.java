@@ -12,7 +12,7 @@ public class DogGene {
         Random generator = new Random();
 
         ArrayList<String> dogBreeds = new ArrayList<>(Arrays.asList("Bulldog", "Labrador", "Husky",
-                "Yorkshire Terrier", "Cocker Spaniel" ));
+                "Yorkshire Terrier", "Cockers Spaniel" ));
         ArrayList<Integer> percentages = generatePercentageList(generator, dogBreeds);
 
         System.out.println("What is your dog's name?");
