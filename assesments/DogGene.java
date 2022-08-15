@@ -1,40 +1,42 @@
 package assesments;
 
-import java.lang.reflect.Array;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class DogGene {
+    public static void main(String[] args){
 
+        Scanner keyboard = new Scanner(System.in);
+        Random generator = new Random();
 
-    public static void main(String[] args) {
-        Random rng = new Random();
-        Scanner scan = new Scanner(System.in);
-        int sum = 0;
-        String res = "";
+        ArrayList<String> dogBreeds = new ArrayList<>(Arrays.asList("Bulldog", "Labrador", "Husky",
+                "Yorkshire Terrier", "Cocker Spaniel" ));
+        ArrayList<Integer> percentages = generatePercentageList(generator, dogBreeds);
 
-        int num1 = rng.nextInt(100 - sum);
+        System.out.println("What is your dog's name?");
+        String dogName = keyboard.nextLine();
 
-        int sum1 = sum + num1;
+        System.out.println("Well, then I have this highly reliable report on " +
+                dogName + "'s prestigious background here.");
+        System.out.println(dogName + " is:");
 
-
-        int num2 = rng.nextInt(100 - sum1); //+ sum1;
-        int sum2 = sum1 + num2;
-
-        int num3 = rng.nextInt(100 - sum2);
-
-        String[] breeds = new String[]{"lambrador", "pug", "chihuahua"};
-
-        System.out.println("please enter the your dogs name");
-        res = scan.nextLine();
-        System.out.println("The Report for the:" + res + " is as follows: \n" + breeds[0] +": "+ num1 +"\n"+breeds[1] +": "+ num2 +"\n"+breeds[2] +": "+ num3);
-
-
+        for (int i=0; i < percentages.size(); i++) {
+            System.out.println(percentages.get(i) + "% " + dogBreeds.get(i));
+        }
     }
-}
+    public static ArrayList<Integer> generatePercentageList (Random generator, ArrayList<String> dogBreeds) {
+        ArrayList<Integer> percentages = new ArrayList<>();
 
+        int percentageTotal = 0;
+        for (int i=0; i < dogBreeds.size() - 1; i++) {
+            int percentage = generator.nextInt(100 - percentageTotal);
+            percentages.add(percentage);
+            percentageTotal += percentage;
+        }
+        int finalPercentage = 100 - percentageTotal;
+        percentages.add(finalPercentage);
 
-
+        return percentages;
+    }}
